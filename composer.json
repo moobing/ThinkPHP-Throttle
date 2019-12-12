@@ -1,0 +1,17 @@
+{
+    "name": "mbing/throttle",
+    "description": "ThinkPHP5.1 & ThinkPHP6.0 Throttle Middleware(TP5、TP6可用的接口节流中间件)",
+    "type": "library",
+    "authors": [
+        {
+            "name": "mbing",
+            "email": "gamedevil520@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "mbing\\Middleware\\": "src"
+        }
+    }
+}
