@@ -2,6 +2,7 @@
 
 namespace mbing\middleware;
 
+use \Exception;
 use think\facade\Cache;
 use think\facade\Config;
 
@@ -41,7 +42,10 @@ class Throttle
 		}else{
 			$throttle_time = time() - $throttle['time'];
 			if($throttle_time < $data[0] && $throttle['number'] > $data[1]){
-				return error('请求频繁,请'.($data[0]/60).'分钟后再试（请勿尝试访问，将重新计算等待时间）');
+				// 输出json格式
+				// return error('请求频繁,请'.($data[0]/60).'分钟后再试（请勿尝试访问，将重新计算等待时间）');
+				// 抛出异常
+				throw new Exception('请求频繁,请'.($data[0]/60).'分钟后再试（请勿尝试访问，将重新计算等待时间）');
 			}
 			//每次请求都获取最新时间
 			$cacheValue['time'] = time();
